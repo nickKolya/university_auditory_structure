@@ -13,6 +13,6 @@ test:
 
 production:
   <<: *default
-  database: university_auditory_structure_production
+  database: postgresql-rectangular-69067
   username: university_auditory_structure
   password: <%= ENV['UNIVERSITY_AUDITORY_STRUCTURE_DATABASE_PASSWORD'] %>

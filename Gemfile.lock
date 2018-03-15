@@ -163,6 +163,8 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
+    uglifier (4.1.8)
+      execjs (>= 0.3.0, < 3)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -194,6 +196,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   terminal-table (= 1.6.0)
+  uglifier
   web-console (>= 3.3.0)
 
 BUNDLED WITH

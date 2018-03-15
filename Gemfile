@@ -26,6 +26,8 @@ gem 'terminal-table', '1.6.0'
 gem 'rabl'
 gem 'oj' # as the JSON parser for Rabl
 
+gem 'uglifier'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
