@@ -1,0 +1,1 @@
+class EducationalRoom < BaseRoom; end

@@ -1,0 +1,1 @@
+class AssemblyHall < ConferenceRoom; end
