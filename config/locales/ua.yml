@@ -1,0 +1,7 @@
+ua:
+  categories:
+    scientific_premises: 'Навчальні приіщення'
+    service_premises: 'Службові приміщення'
+    general_use_premises: 'Приміщення загального користування'
+    conference_rooms: 'Конференц-зали'
+    museums: 'Музеї'

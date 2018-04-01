@@ -20,7 +20,17 @@ class Rooms::Create < Rooms::Base
   private
 
   def save_room
+    assign_category
+
     base_room.save && room.save if base_room.valid? && room.valid?
+  end
+
+  def assign_category
+    base_room.update(category: category)
+  end
+
+  def category
+    @category ||= Category.find_or_create_by(name: room.category_name)
   end
 
   def base_room_attrs

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312085908) do
+ActiveRecord::Schema.define(version: 20180330144529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,14 @@ ActiveRecord::Schema.define(version: 20180312085908) do
     t.jsonb "additional_info", default: "{}", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "category_id"
     t.index ["additional_info"], name: "index_base_rooms_on_additional_info", using: :gin
+  end
+
+  create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "computer_labs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
