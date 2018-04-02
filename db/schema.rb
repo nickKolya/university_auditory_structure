@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330144529) do
+ActiveRecord::Schema.define(version: 20180402214939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20180330144529) do
 
   create_table "conference_rooms", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "number_of_microphones", default: 0, null: false
-    t.integer "number_of_monitorss", default: 0, null: false
+    t.integer "number_of_monitors", default: 0, null: false
     t.boolean "translation_equipment", default: false, null: false
     t.boolean "stereo_system", default: false, null: false
     t.boolean "flipchart", default: false, null: false
