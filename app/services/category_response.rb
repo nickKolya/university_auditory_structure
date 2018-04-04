@@ -5,9 +5,8 @@ class CategoryResponse
         "categories": {
           "scientific_premises": {
             "name":"Навчальні приміщення",
-            "sub_categories": [
-              {
-                "key": "auditory",
+            "sub_categories": {
+              "auditory": {
                 "name": "Аудиторія",
                 "fields": [
                   {
@@ -62,13 +61,12 @@ class CategoryResponse
                   }
                 ]
               }
-            ]
+            }
           },
           "service_premises": {
             "name":"Службові приміщення",
-            "sub_categories": [
-              {
-                "key": "office_space",
+            "sub_categories": {
+              "office_space": {
                 "name": "Службове приміщення",
                 "fields": [
                   {
@@ -105,13 +103,12 @@ class CategoryResponse
                   }
                 ]
               }
-            ]
+            }
           },
           "general_use_premises": {
             "name":"Приміщення загального користування",
-            "sub_categories": [
-              {
-                "key": "dining_room",
+            "sub_categories": {
+              "dining_room": {
                 "name": "Їдальня",
                 "fields": [
                   {
@@ -243,13 +240,12 @@ class CategoryResponse
                   }
                 ]
               }
-            ]
+            }
           },
           "conference_rooms": {
             "name":"Конференц-зали",
-            "sub_categories": [
-              {
-                "key": "conference_room",
+            "sub_categories": {
+              "conference_room": {
                 "name": "Конференц-зал",
                 "fields": [
                   {
@@ -298,13 +294,12 @@ class CategoryResponse
                   }
                 ]
               }
-            ]
+            }
           },
           "museums": {
             "name":"Музеї",
-            "sub_categories": [
-              {
-                "key": "museum",
+            "sub_categories": {
+              "museum": {
                 "name": "Museum",
                 "fields": [
                   {
@@ -337,7 +332,7 @@ class CategoryResponse
                   }
                 ]
               }
-            ]
+            }
           }
         }
       }
