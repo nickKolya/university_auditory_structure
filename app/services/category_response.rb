@@ -2,9 +2,8 @@ class CategoryResponse
   class << self
     def call
       {
-        "categories":[
-          {
-            "key":"scientific_premises",
+        "categories": {
+          "scientific_premises": {
             "name":"Навчальні приміщення",
             "sub_categories": [
               {
@@ -29,8 +28,7 @@ class CategoryResponse
                   }
                 ]
               },
-              {
-                "key": "computer_lab",
+              "computer_lab": {
                 "name": "Комп'ютерна лабораторія",
                 "fields": [
                   {
@@ -43,8 +41,7 @@ class CategoryResponse
                   }
                 ]
               },
-              {
-                "key": "scientific_lab",
+              "scientific_lab": {
                 "name": "Наукова Лабораторія",
                 "fields": [
                   {
@@ -67,8 +64,7 @@ class CategoryResponse
               }
             ]
           },
-          {
-            "key":"service_premises",
+          "service_premises": {
             "name":"Службові приміщення",
             "sub_categories": [
               {
@@ -111,8 +107,7 @@ class CategoryResponse
               }
             ]
           },
-          {
-            "key":"general_use_premises",
+          "general_use_premises": {
             "name":"Приміщення загального користування",
             "sub_categories": [
               {
@@ -149,8 +144,7 @@ class CategoryResponse
                   }
                 ]
               },
-              {
-                "key": "library",
+              "library": {
                 "name": "Бібліотека",
                 "fields": [
                   {
@@ -191,8 +185,7 @@ class CategoryResponse
                   }
                 ]
               },
-              {
-                "key": "sanitary_room",
+              "sanitary_room": {
                 "name": "Санітарне приміщення",
                 "fields": [
                   {
@@ -225,8 +218,7 @@ class CategoryResponse
                   }
                 ]
               },
-              {
-                "key": "wardrobe",
+              "wardrobe": {
                 "name": "Гардероб",
                 "fields": [
                   {
@@ -253,8 +245,7 @@ class CategoryResponse
               }
             ]
           },
-          {
-            "key":"conference_rooms",
+          "conference_rooms": {
             "name":"Конференц-зали",
             "sub_categories": [
               {
@@ -309,8 +300,7 @@ class CategoryResponse
               }
             ]
           },
-          {
-            "key":"museums",
+          "museums": {
             "name":"Музеї",
             "sub_categories": [
               {
@@ -349,7 +339,7 @@ class CategoryResponse
               }
             ]
           }
-        ]
+        }
       }
     end
   end
