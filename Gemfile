@@ -30,6 +30,10 @@ gem 'uglifier'
 
 gem 'rack-cors'
 
+gem 'devise', '~> 4.4', '>= 4.4.3'
+
+gem 'jwt', '~> 2.1'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
