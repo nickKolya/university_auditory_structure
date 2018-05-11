@@ -31,6 +31,8 @@ gem 'uglifier'
 gem 'rack-cors'
 
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'cancancan', '~> 2.2'
+gem 'rolify', '~> 5.2'
 
 gem 'jwt', '~> 2.1'
 

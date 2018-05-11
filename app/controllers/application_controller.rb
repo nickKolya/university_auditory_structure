@@ -6,6 +6,16 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user
 
+  check_authorization
+
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      format.json { head :forbidden, content_type: 'text/html' }
+      format.html { redirect_to main_app.root_url, notice: exception.message }
+      format.js   { head :forbidden, content_type: 'text/html' }
+    end
+  end
+
   private
 
   def configure_permitted_parameters
@@ -17,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= (super || User.find(@current_user_id))
+    @current_user ||= (super || User.find_by(id: @current_user_id))
   end
 
   def signed_in?

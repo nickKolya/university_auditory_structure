@@ -7,6 +7,8 @@ class Api::V1::RoomsController < Api::V1::BaseController
 
       @rooms = op.result
     end
+
+    authorize! :read, @rooms
   end
 
   def show
@@ -15,12 +17,16 @@ class Api::V1::RoomsController < Api::V1::BaseController
 
       @room = op.result
     end
+
+    authorize! :read, @room
   end
 
   def create
     op = ::Rooms::Create.(params.delete(:room_type), params)
 
-    return render_custom_response(op.errors, op.status)  if op.errors.any?
+    authorize! :create, op.room
+
+    return render_custom_response(op.errors, op.status) if op.errors.any?
 
     render :show, locals: { object: op.result }
   end
@@ -28,11 +34,15 @@ class Api::V1::RoomsController < Api::V1::BaseController
   def destroy
     op = ::Rooms::Destroy.(params[:room_type], params)
 
+    authorize! :destroy, op.room
+
     render_custom_response(op.errors.presence || op.messages, op.status)
   end
 
   def update
     op = ::Rooms::Update.(params.delete(:room_type), params)
+
+    authorize! :update, op.room
 
     return render_custom_response(op.errors, op.status)  if op.errors.any?
 

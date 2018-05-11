@@ -1,4 +1,6 @@
 class Api::V1::Devise::SessionsController < Devise::SessionsController
+  skip_authorization_check
+
   def create
     user = User.find_by_email(sign_in_params[:email])
 
