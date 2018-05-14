@@ -8,7 +8,7 @@
 
 # Create super_admin user
 super_admin = User.find_or_create_by(email: 'superadmin@gmail.com') do |user|
-  user.first_name = 'Admin'
+  user.first_name = 'Super Admin'
   user.password = 'P@ssword1!'
   user.password_confirmation = 'P@ssword1!'
 end

@@ -22,9 +22,10 @@ class Api::V1::RoomsController < Api::V1::BaseController
   end
 
   def create
-    op = ::Rooms::Create.(params.delete(:room_type), params)
+    op = ::Rooms::Create.new(params.delete(:room_type), params)
 
-    authorize! :create, op.room
+    authorize! :create, op.model_class
+    op.call
 
     return render_custom_response(op.errors, op.status) if op.errors.any?
 
@@ -32,17 +33,19 @@ class Api::V1::RoomsController < Api::V1::BaseController
   end
 
   def destroy
-    op = ::Rooms::Destroy.(params[:room_type], params)
+    op = ::Rooms::Destroy.new(params[:room_type], params)
 
-    authorize! :destroy, op.room
+    authorize! :destroy, op.model_class, id: params[:id]
+    op.call
 
     render_custom_response(op.errors.presence || op.messages, op.status)
   end
 
   def update
-    op = ::Rooms::Update.(params.delete(:room_type), params)
+    op = ::Rooms::Update.new(params.delete(:room_type), params)
 
-    authorize! :update, op.room
+    authorize! :update, op.model_class, id: params[:id]
+    op.call
 
     return render_custom_response(op.errors, op.status)  if op.errors.any?
 
