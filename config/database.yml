@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: university_auditory_structure_development
+  database: university_auditory_structure_development1
 
 test:
   <<: *default
