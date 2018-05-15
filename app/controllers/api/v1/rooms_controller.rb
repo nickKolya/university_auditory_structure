@@ -2,7 +2,7 @@ class Api::V1::RoomsController < Api::V1::BaseController
   before_action :authenticate_user!
 
   def index
-    ::Rooms::Index.(params[:room_type]).tap do |op|
+    ::Rooms::Index.(params[:room_type], params).tap do |op|
       render_custom_response(op.errors, op.status) if op.errors.any?
 
       @rooms = op.result
