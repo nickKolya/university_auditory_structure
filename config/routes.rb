@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       resources :rooms
       resources :categories, only: :index
       resources :register_users
+      resources :roles, only: :index do
+        post 'set_role/:user_id', to: 'roles#set_role'
+      end
     end
   end
 

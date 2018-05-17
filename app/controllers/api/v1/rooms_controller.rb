@@ -51,13 +51,4 @@ class Api::V1::RoomsController < Api::V1::BaseController
 
     render :show, locals: { object: op.result }
   end
-
-  private
-
-  def render_custom_response(message, status)
-    respond_to do |format|
-      format.json { render json: { message: message }, status: status }
-      format.xml  { render xml: { message: message }, status: status }
-    end
-  end
 end

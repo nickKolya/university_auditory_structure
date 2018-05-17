@@ -11,4 +11,11 @@ class Api::V1::BaseController < ::ApplicationController
       format.xml { render xml: { message: 'Record not found' }, status: 404 }
     end
   end
+
+  def render_custom_response(message, status)
+    respond_to do |format|
+      format.json { render json: { message: message }, status: status }
+      format.xml  { render xml: { message: message }, status: status }
+    end
+  end
 end

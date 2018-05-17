@@ -4,18 +4,14 @@ class Api::V1::RegisterUsersController < Api::V1::BaseController
   end
 
   def create
-    authorize! :create, User
+    op = ::Users::Create.new(User, params)
 
-    @user = User.new(user_params)
+    authorize! :create, op.model_class
+    op.call
 
-    if @user.save
-      render :show
-    else
-      respond_to do |format|
-        format.json { render json: @user.errors, status: 422 }
-        format.xml { render xml: @user.errors, status: 422 }
-      end
-    end
+    return render_custom_response(op.errors, op.status) if op.errors.any?
+
+    render :show, locals: { object: op.result }
   end
 
   def show
@@ -29,17 +25,6 @@ class Api::V1::RegisterUsersController < Api::V1::BaseController
 
     User.find(params[:id]).destroy
 
-    respond_to do |format|
-      format.json { render json: { message: 'User was successfully deleted' }, status: 200 }
-      format.xml { render xml: { message: 'User was successfully deleted' }, status: 200 }
-    end
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(
-      :first_name, :last_name, :email, :password, :password_confirmation
-    )
+    render_custom_response('User was successfully deleted', 200)
   end
 end

@@ -9,11 +9,13 @@ class Ability
     if user.moderator?
       can :read, :all
       cannot :read, User
+      cannot :crud, Role
     end
 
     if user.admin?
       can :manage, :all
       cannot :manage, User
+      cannot :crud, Role
     end
   end
 end

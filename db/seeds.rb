@@ -26,11 +26,11 @@ end
 admin.add_role :admin
 
 
-# Create moderator user
-moderator = User.find_or_create_by(email: 'moderator@gmail.com') do |user|
-  user.first_name = 'Moderator'
+# Create simple user
+moderator = User.find_or_create_by(email: 'user@gmail.com') do |user|
+  user.first_name = 'User'
   user.password = '12345678'
   user.password_confirmation = '12345678'
 end
 
-moderator.add_role :moderator
+moderator.add_role :user
