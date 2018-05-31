@@ -21,7 +21,7 @@ class User < ApplicationRecord
     has_role? :admin
   end
 
-  def moderator?
-    has_role? :moderator
+  def user?
+    has_role? :user
   end
 end

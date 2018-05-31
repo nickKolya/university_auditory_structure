@@ -6,7 +6,7 @@ class Ability
 
     can :manage, :all if user.super_admin?
 
-    if user.moderator?
+    if user.user?
       can :read, :all
       cannot :read, User
       cannot :crud, Role
